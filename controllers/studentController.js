@@ -4,8 +4,8 @@ exports.createStudent = async (req, res) => {
   try {
 
     const totalCount = await Student.countDocuments({});
-    
-    req.body['rollno']=1+totalCount
+    //  req.body['rollno']=1+totalCount
+    req.body.rollno=1+totalCount
     const student = await Student.create(req.body);
     res.json(student);
   } catch (err) {
