@@ -5,7 +5,7 @@ exports.createStudent = async (req, res) => {
 
     const totalCount = await Student.countDocuments({});
     //  req.body['rollno']=1+totalCount
-    req.body.rollno=1+totalCount 
+ //   req.body.rollno=1+totalCount
     const student = await Student.create(req.body);
     res.json(student);
   } catch (err) {
@@ -25,23 +25,20 @@ exports.getStudents = async (req, res) => {
  
 exports.getStudent = async (req, res) => {
   try {
-    const student = await Student.findOne({ rollno: req.params.a });
+    const student = await Student.findOne({ rollno: req.params.id });
     if (!student) return res.status(404).json({ message: "Student not found" });
     res.json(student);
   } catch (err) {
     res.status(500).json({ error: err.message });
   }
 };
-
- 
-
-
  
 exports.updateStudent = async (req, res) => {
   try {
     const student = await Student.findOneAndUpdate(
       { rollno: req.params.id },
-      req.body
+      req.body,
+      {new: true}
       
     );
 
@@ -53,7 +50,6 @@ exports.updateStudent = async (req, res) => {
   }
 };
 
- 
 exports.deleteStudent = async (req, res) => {
   try {
     const student = await Student.findOneAndDelete({ rollno: req.params.id });
