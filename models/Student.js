@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-// const Counter = require("./counter");
+const Counter = require("./counter");
 
 const studentSchema = new mongoose.Schema({
   rollno: { type: Number, unique: true },
