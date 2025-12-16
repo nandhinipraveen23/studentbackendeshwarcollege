@@ -10,7 +10,7 @@ const {
 const router = express.Router();
 router.post("/", createStudent);
 
-router.get("/", getStudents);
+router.get("/", getAllStudents);
 router.get("/:id", getStudent);
 
 router.put("/:id", updateStudent);

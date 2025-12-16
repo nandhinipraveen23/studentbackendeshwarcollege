@@ -13,7 +13,7 @@ exports.createStudent = async (req, res) => {
   }
 };
  
-exports.getStudents = async (req, res) => {
+exports.getAllStudents = async (req, res) => {
   try {
     const students = await Student.find();
     res.json(students);
