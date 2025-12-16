@@ -4,7 +4,8 @@ const {
   getStudent,
   createStudent,
   updateStudent,
-  deleteStudent
+  deleteStudent,
+  getAllStudents
 } = require("../controllers/studentController");
 
 const router = express.Router();
